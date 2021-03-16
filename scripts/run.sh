@@ -1,0 +1,1 @@
+docker run -it -p 5672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=micro -e RABBITMQ_DEFAULT_PASS=micro -e RABBITMQ_DEFAULT_VHOST=micro library/rabbitmq:3.8.5-management-alpine

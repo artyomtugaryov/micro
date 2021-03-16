@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Flask-SocketIO-Celery</title>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    $(document).ready(function(){
+    	{#namespace = '/task';#}
+        // stablish a connection to the server for the client
+    	var socket = io.connect('http://' + document.domain + ':' + location.port);
+        console.log('http://' + document.domain + ':' + location.port)
+        socket.on('connect', () => {
+          console.log('Successfully connected!');
+        });
+        socket.on('index', (message) => {
+            console.log(message);
+        })
+
+    });
+    </script>
+
+</head>
+<body>
+	<h1>Flask-SocketIO-Celery simple example</h1>
+	<br>
+	<h3>Enter your name:</h3>
+	<form id="emit" method="POST" action="#">
+		<input type="text" id="emit_name" name="emit_name" placeholder="your name">
+		<input type="submit" value="send">
+	</form>
+	<br>
+	<h2>Receive:</h2>
+	<div id="receive_div"></div>
+</body>
+</html>
+
+
