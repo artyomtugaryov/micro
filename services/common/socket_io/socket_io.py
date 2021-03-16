@@ -17,5 +17,6 @@ def _create_socket_io_server() -> SocketIO:
 
 
 def get_socket_io() -> SocketIO:
+    print(BROKER_URL_WITH_VHOST)
     return SocketIO(message_queue=BROKER_URL_WITH_VHOST,
                     logger=True, engineio_logger=True)

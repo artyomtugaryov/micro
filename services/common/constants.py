@@ -1,4 +1,10 @@
+import os
+from inspect import getfile
+
 from services.common.get_env import get_env_var
+
+ROOT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(getfile(lambda: 0))))
+STATIC_CLIENT_PATH = os.path.join(ROOT_PATH, 'services', 'client')
 
 DEFAULT_HOST = 'localhost'
 

@@ -14,8 +14,6 @@ class RabbitMQBrokerManagerMeta(type):
 
 
 class RabbitMQBrokerManager:
-    task_id = 0
-
     def __init__(self):
         credentials = PlainCredentials(username=BROKER_USERNAME, password=BROKER_PASSWORD)
 
@@ -25,6 +23,3 @@ class RabbitMQBrokerManager:
                                                                    credentials=credentials))
         self.channel = self._connection.channel()
         self.channel.queue_declare(queue=SUBMIT_TASK_QUEUE, durable=True)
-
-    def __del__(self):
-        self._connection.close()

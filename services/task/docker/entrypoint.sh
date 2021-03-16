@@ -1,0 +1,1 @@
+python3 /micro/services/task/task.py

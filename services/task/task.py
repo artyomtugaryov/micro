@@ -7,7 +7,7 @@ print(' [*] Waiting for messages. To exit press CTRL+C')
 
 
 def task_callback(body: dict):
-    n = 10
+    n = int(body['numberOfRepetitions'])
     interval = 1
 
     print(f' [x] Received {body} and I will reprint this body {n} times with interval {interval}')

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Flask-SocketIO-Celery</title>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js"></script>
+</head>
+<body>
+<h1>Micro simple example</h1>
+<br>
+<h3>Enter integer less 10:</h3>
+<form id="form" action="" name="submit">
+    <input type="text" id="numberOfRepetitions" name="number" placeholder="Number of seconds"/>
+    <button type="submit">Submit</button>
+</form>
+<br>
+<h2>Receive:</h2>
+<div id="receive_div"></div>
+</body>
+
+<script type="text/javascript">
+    const formEl = document.getElementById('form');
+    formEl.addEventListener('submit', submit);
+
+    function submit(event) {
+        fetch(`/api/task/`,
+            {
+                method: 'POST',
+                body: {numberOfRepetitions: document.getElementById('numberOfRepetitions').value}
+            });
+        event.preventDefault();
+    }
+
+    const resultsEl = document.getElementById('receive_div');
+
+
+    function processResult(message) {
+        const resultEl = document.createElement('div');
+        resultEl.innerText = `Message: ${JSON.stringify(message)}`;
+        resultsEl.append(resultEl);
+    }
+
+    (function () {
+        const socket = io.connect(`http://${document.domain}:${location.port}`);
+
+        socket.on('connect', () => {
+            console.log('Successfully connected!');
+        });
+
+        socket.on('index', (message) => {
+            processResult(message);
+        })
+
+    })();
+</script>
+</html>
