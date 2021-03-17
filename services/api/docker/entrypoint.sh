@@ -1,1 +1,1 @@
-gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 wsgi:app
+gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:${API_SERVICE_PORT} wsgi:app

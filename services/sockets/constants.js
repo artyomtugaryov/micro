@@ -5,8 +5,8 @@ function getEnvironmentVariable(variable, defaultValue) {
 const BROKER_PROTOCOL = getEnvironmentVariable('BROKER_PROTOCOL', 'amqp');
 const BROKER_HOST = getEnvironmentVariable('BROKER_HOST', 'localhost');
 const BROKER_PORT = getEnvironmentVariable('BROKER_PORT', 5672);
-const BROKER_VIRTUAL_HOST = getEnvironmentVariable('BROKER_VIRTUAL_HOST', 'micro');
-const BROKER_USERNAME = getEnvironmentVariable('BROKER_USER', 'micro');
+const BROKER_VIRTUAL_HOST = getEnvironmentVariable('RABBITMQ_DEFAULT_VHOST', 'micro');
+const BROKER_USERNAME = getEnvironmentVariable('RABBITMQ_DEFAULT_USER', 'micro');
 const BROKER_PASSWORD = getEnvironmentVariable('BROKER_PASSWORD', 'micro');
 const SOCKET_SERVICE_PORT = getEnvironmentVariable('SOCKET_SERVICE_PORT', 5001);
 

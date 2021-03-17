@@ -11,9 +11,9 @@ DEFAULT_HOST = 'localhost'
 BROKER_PROTOCOL = get_env_var(name='BROKER_PROTOCOL', default='amqp')
 BROKER_HOST = get_env_var(name='BROKER_HOST', default=DEFAULT_HOST)
 BROKER_PORT = get_env_var(name='BROKER_PORT', default=5672, cast_function=int)
-BROKER_VIRTUAL_HOST = get_env_var(name='BROKER_VHOST', default='micro')
-BROKER_USERNAME = get_env_var(name='BROKER_USER', default='micro')
-BROKER_PASSWORD = get_env_var(name='BROKER_PASSWORD', default='micro')
+BROKER_VIRTUAL_HOST = get_env_var(name='RABBITMQ_DEFAULT_VHOST', default='micro')
+BROKER_USERNAME = get_env_var(name='RABBITMQ_DEFAULT_USER', default='micro')
+BROKER_PASSWORD = get_env_var(name='RABBITMQ_DEFAULT_PASS', default='micro')
 
 BROKER_URL_WITHOUT_VHOST = f'{BROKER_PROTOCOL}://{BROKER_USERNAME}:{BROKER_PASSWORD}@{BROKER_HOST}'
 BROKER_URL_WITH_VHOST = f'{BROKER_URL_WITHOUT_VHOST}/{BROKER_VIRTUAL_HOST}'
