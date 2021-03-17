@@ -13,7 +13,7 @@ class TaskResource(Resource):
     @accepts(dict(name='numberOfRepetitions', type=int), api=api)
     @responds(dict(name='taskId', type=int))
     def post(self) -> dict:
-        data = request.get_json()
+        data = request.json
         print(data)
         return TaskService.run_task(data)
 

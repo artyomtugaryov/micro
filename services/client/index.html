@@ -22,10 +22,16 @@
     formEl.addEventListener('submit', submit);
 
     function submit(event) {
+        const bodyRequest = {
+            numberOfRepetitions: +document.getElementById('numberOfRepetitions').value
+        };
         fetch(`/api/task/`,
             {
                 method: 'POST',
-                body: {numberOfRepetitions: document.getElementById('numberOfRepetitions').value}
+                body: JSON.stringify(bodyRequest),
+                headers: {
+                  'Content-Type': 'application/json'
+                },
             });
         event.preventDefault();
     }
@@ -43,7 +49,7 @@
         const socket = io.connect(`http://${document.domain}:${location.port}`);
 
         socket.on('connect', () => {
-            console.log('Successfully connected!');
+            console.log('Sockets successfully connected!');
         });
 
         socket.on('index', (message) => {

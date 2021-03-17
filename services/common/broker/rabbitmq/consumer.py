@@ -24,8 +24,7 @@ class RabbitMQBrokerConsumer:
             body_as_dict = RabbitMQBrokerConsumer._decode_body(body)
             self._callback(body_as_dict)
         except Exception as e:
-            print(e)
-            raise e
+            print(f'Error during handling message {body}: {e}')
         finally:
             ch.basic_ack(delivery_tag=method.delivery_tag)
 
