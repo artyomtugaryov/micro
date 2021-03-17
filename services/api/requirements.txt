@@ -8,3 +8,4 @@ Flask-SocketIO==5.0.1
 eventlet==0.30.2
 Werkzeug==0.16.1
 kombu==5.0.2
+gunicorn

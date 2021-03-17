@@ -18,6 +18,5 @@ BROKER_PASSWORD = get_env_var(name='BROKER_PASSWORD', default='micro')
 BROKER_URL_WITHOUT_VHOST = f'{BROKER_PROTOCOL}://{BROKER_USERNAME}:{BROKER_PASSWORD}@{BROKER_HOST}'
 BROKER_URL_WITH_VHOST = f'{BROKER_URL_WITHOUT_VHOST}/{BROKER_VIRTUAL_HOST}'
 
-SUBMIT_TASK_QUEUE = get_env_var(name='BROKER_PASSWORD', default='submit_task_queue')
-
-ASYNC_MODE = get_env_var(name='ASYNC_MODE', default='eventlet')
+SUBMIT_TASK_QUEUE = get_env_var(name='SUBMIT_TASK_QUEUE', default='submit_task_queue')
+TASK_LOGS_QUEUE = get_env_var(name='TASK_LOGS_QUEUE', default='task_logs')

@@ -14,6 +14,5 @@ class TaskResource(Resource):
     @responds(dict(name='taskId', type=int))
     def post(self) -> dict:
         data = request.json
-        print(data)
         return TaskService.run_task(data)
 

@@ -38,7 +38,6 @@
 
     const resultsEl = document.getElementById('receive_div');
 
-
     function processResult(message) {
         const resultEl = document.createElement('div');
         resultEl.innerText = `Message: ${JSON.stringify(message)}`;
@@ -52,10 +51,10 @@
             console.log('Sockets successfully connected!');
         });
 
-        socket.on('index', (message) => {
+        socket.on('task', (message) => {
             processResult(message);
         })
-
     })();
+
 </script>
 </html>

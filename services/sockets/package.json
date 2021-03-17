@@ -1,0 +1,22 @@
+{
+  "name": "sokcets",
+  "version": "0.1.0",
+  "description": "Socket service for Micro project",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js"
+  },
+  "keywords": [
+    "sokcetio",
+    "sockets",
+    "microservices"
+  ],
+  "author": "Artyom Tugaryov artyom.tugaryov@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.7.1",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "socket.io": "^4.0.0"
+  }
+}
